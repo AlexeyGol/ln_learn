@@ -1,9 +1,10 @@
 on:
   push:
-    branches:
-      - main
-    branches-ignore:
-      - test
+# #this will not work!
+#     branches:
+#       - main
+#     branches-ignore:
+#       - test
 
 env:
   number: one
