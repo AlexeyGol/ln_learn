@@ -4,6 +4,8 @@ jobs:
   echovar:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ env.ONE }}
+      - run: |
+          echo ${{ env.ONE }}
+          echo $ONE
         env: 
           ONE: jobvar
