@@ -1,0 +1,22 @@
+name: try anchors
+
+on:
+  push:
+
+jobs:
+  like-hidden-job:
+    runs-on: ubuntu-latest
+    steps: &reusable
+      - name: install cowsay
+        run: sudo apt-get install cowsay
+      - name: test cowsay
+        run: |
+          cowsay "Someone told: ${{ env.MESSAGE}}"
+  
+  job2:
+    runs-on: ubuntu-latest
+    env:
+      MESSAGE: "hello"
+    steps:
+      - name: Welcome
+        <<: *reusable
