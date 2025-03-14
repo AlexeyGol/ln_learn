@@ -1,0 +1,19 @@
+name: Envoy
+description: 'Deliver the message'
+inputs:
+  message:  # id of input
+    description: 'What to say'
+    required: true
+    default: 'World'
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+  - name: install cowsay
+    run: sudo apt-get install cowsay
+  - name: test cowsay
+    run: |
+      cowsay "Someone told: ${{ inputs.message }}"
