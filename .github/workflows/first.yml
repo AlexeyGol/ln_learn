@@ -11,5 +11,6 @@ jobs:
     - name: checkout repo
       uses: actions/checkout@v4.2.2
     - name: show env
+      if: false
       run: env | sort
     
