@@ -11,10 +11,12 @@ outputs:
     value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: "composite"
-  shell: bash
+  
   steps:
   - name: install cowsay
+    shell: bash
     run: sudo apt-get install cowsay
   - name: test cowsay
+    shell: bash
     run: |
       cowsay "Someone told: ${{ inputs.message }}"
