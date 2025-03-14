@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: test action
-        uses: .github/actions/envoy
+        uses: ./.github/actions/envoy
         with: 
           message: Oylala
 
