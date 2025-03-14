@@ -1,0 +1,22 @@
+name: artifacts
+on: push
+env:
+  FILENAME: touched.txt
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - run: touch ${{ env.FILENAME }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: file
+          path: ${{ env.FILENAME }}
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: file
+      - run: ls
+  
