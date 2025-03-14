@@ -1,0 +1,7 @@
+name: test precedence
+on: push
+jobs:
+  echovar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $ONE
